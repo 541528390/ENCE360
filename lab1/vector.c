@@ -26,7 +26,7 @@ struct Vector {
 // Allocate memory and use memset to set the data to zero
 //
 // Functions you'll likely need (check these with the man pages):
-// malloc 
+// malloc
 // memset, sizeof
 //
 struct Vector *new_vector(int n) {
@@ -36,13 +36,13 @@ struct Vector *new_vector(int n) {
     memset(vect -> data, 0, n*sizeof(double));
     return vect;
     }
-    
+
     // TODO: Implement me
 
 
 
 //
-// Allocate a vector and copy the data from a pointer 
+// Allocate a vector and copy the data from a pointer
 //
 struct Vector *new_from(double *data, int n) {
 
@@ -55,7 +55,7 @@ struct Vector *new_from(double *data, int n) {
 }
 
 //
-// Take two vectors as input, add their contents and return a new vector with the added data 
+// Take two vectors as input, add their contents and return a new vector with the added data
 // it is an error if the sizes of the input vectors have different sizes
 //
 struct Vector *add_vectors(struct Vector *v1, struct Vector *v2) {
@@ -99,13 +99,13 @@ int main() {
     print_vector(y);
 
 
-       struct Vector *r = add_vectors(x, y);
-       print_vector(r);
+    struct Vector *r = add_vectors(x, y);
+    print_vector(r);
 
-      // Expected output: 
+      // Expected output:
       // <1.43, 2.00, 3.50, 4.00>
-      // <7.00, -2.70, 4.00, 0.00>  
-      // <8.43, -0.70, 7.00, 4.00>
+      // <7.00, -2.70, 4.00, 0.00>
+      // <8.43, -0.70, 7.50, 4.00>
 
       // Experiment with different inputs
 
