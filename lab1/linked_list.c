@@ -121,9 +121,16 @@ struct Link *fibonacci(int n) {
 // There's a question on the Quiz about this - so do this first!
 //
 
-// struct Link *map_list(...) {
-// TODO: Implement me!
-// }
+struct Link *map_list(struct Link *list, int(*fib)(int)) {
+    struct Link *head;
+    head = NULL;
+    for(struct Link *list1 = list; list1 != NULL; list1 = list1 -> next)
+    {
+       head = append(fib(list1-> value),head);
+    }
+    return reverse_list(head);
+    
+}
 
 
 
@@ -133,7 +140,12 @@ struct Link *fibonacci(int n) {
 //
 //
 void free_list(struct Link *list) {
-    // TODO: Implement me
+    struct Link *next;
+    for(struct Link *list1 = list; list1 != NULL;){
+    next = list1 -> next;
+    free(list1);
+    list1 = next;
+    }
 }
 
 
@@ -148,11 +160,11 @@ int square(int x) {
 int main() {
 
     struct Link *fib = fibonacci(10);
-    //   struct Link *fib_sq = map_list(fib, square);  
+      struct Link *fib_sq = map_list(fib, square);  
 
       // print out our list of fibonacci^2 (in reverse)
       // 1, 1, 4, 9, 25, 64, 169, 441, 1156, 3025
-    //   print_list(fib_sq);
+      print_list(fib_sq);
     print_list(fib);
 
     free_list(fib_sq);
